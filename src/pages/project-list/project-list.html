@@ -1,0 +1,60 @@
+<!--
+  Generated template for the ProjectListPage page.
+  
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header >
+  <ion-toolbar color="primary">
+    <ion-navbar>
+      <ion-title>{{ 'Project List' | translate }}</ion-title>
+    </ion-navbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="{{'Pull to refresh' | translate}}" refreshingSpinner="circles" refreshingText="{{'Refreshing...'| translate}}">
+    </ion-refresher-content>
+  </ion-refresher>
+  
+  <div class="fix" style="margin-top:40px">
+    <div class="search">
+      <ion-searchbar type='text' placeholder="{{'Search' | translate}}" name='search' #search="ngModel" [(ngModel)]="filter.search" (ngModelChange)="projectList(filter.search)"></ion-searchbar>
+    </div>
+  </div>
+  
+  <div class="main-history mb70">
+    <div class="cs-list" *ngFor="let row of data">
+      <div class="top-block">
+        <p>{{'Date Created' | translate}} : <span>{{row.date_created |  date:'d MMMM y'}}</span></p>
+        <p>{{'Owner Detail' | translate}} : <span>{{row.owner_name | titlecase}} / {{row.owner_phone_number}} </span></p>
+        <p>{{'Architect Detail' | translate}} : <span>{{row.project_head | titlecase}} / {{row.project_head_mobile}}</span></p>
+      </div>
+      <!-- <div class="middle-block">
+        <p><strong>{{'Address' | translate}} </strong> {{row.line_one_address}} {{row.line_two_address}} {{row.city}}, {{row.district}}, {{row.state}}, {{row.pincode}}</p>
+      </div> -->
+      
+      <button color="secondary" ion-button outline round block icon-start *ngIf="row.site_image != ''" (click)="viewDetail(upload_url+row.site_image)">
+        <ion-icon ios="ios-eye" md="md-eye"></ion-icon>
+        {{'View Image' | translate}}
+      </button>
+    </div>
+    
+    <div class="no-content" *ngIf="data.length == 0">
+      <img src="assets/imgs/no_found.svg" style="height: 150px;">
+    </div>
+  </div>
+  
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)"  *ngIf="flag!=1">
+    <ion-infinite-scroll-content
+    loadingSpinner="bubbles"
+    loadingText="{{'Loading more data...' | translate}}">
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>
+</ion-content>
+<ion-fab right bottom>
+  <button ion-fab color="secondary" (click)="goOnAdd()"> <ion-icon name="add"></ion-icon></button>
+</ion-fab>
+

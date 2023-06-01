@@ -1,0 +1,51 @@
+page-home {
+    .company-logo{
+        display: flex;
+        padding: 0px 16px;
+
+        img{
+            // width: 60px;
+            height: 65px;
+            object-fit: contain;
+        }
+    }
+
+    .share-text{
+        font-size: 11px;
+        text-transform: capitalize;
+        color: #fff;
+    }
+
+    img.reward-img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 50px;
+    }
+    .reward-text{
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 19px;
+        padding-right: -21px;
+        padding-left: 12px;
+        font-weight: 700;
+    }
+    .icon-md-primary{
+        color: #ffffff!important;
+    }
+    .toolbar-background-md{
+        
+        border-color: #b2b2b2;
+        background: #1c1a18!important;
+    }
+    .bar-button-default-md{
+        color: #ffffff;
+    }
+
+    .toolbar-background-ios {
+        background: #1c1a18;
+    }
+
+    
+}

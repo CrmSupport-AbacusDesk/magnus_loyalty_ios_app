@@ -1,0 +1,42 @@
+page-project-add {
+    
+    ion-select{
+        font-size: 13px !important;
+        padding-left: 10px !important;
+    }
+
+    .upload-document
+	{
+		height: 150px;
+		border: solid 1px #1c1a18;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		border-radius: 10px;
+		
+		p
+		{
+			font-size: 12px;
+			text-align: center;
+			line-height: 16px;
+			color: #000;
+			
+			i
+			{
+				font-size: 24px;
+			}
+		}
+		
+		&.error
+		{
+			border-color: #ff0000;
+			
+			p
+			{
+				color: #ff0000;
+			}
+		}
+	}
+    
+}
